@@ -25,7 +25,24 @@ class SearchBloc{
     eventController.stream.listen((event) {
       if (event is QueryEvent){
         //..
+        filter((event as QueryEvent).query);
       }
+    });
+  }
+
+  void filter(String query){
+    if (query.isEmpty){
+      stateController.sink.add(state);
+      return;
+    }
+    Future.delayed(Duration(seconds: 1),(){
+        List<String> newList = [];
+        state.listLanguage.forEach((element) {
+          if(element.toLowerCase().contains(query.toLowerCase())){
+            newList.add(element);
+          }
+        });
+        stateController.sink.add(SearchState(listLanguage: newList));
     });
   }
 
