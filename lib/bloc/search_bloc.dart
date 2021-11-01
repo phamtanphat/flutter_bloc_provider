@@ -25,7 +25,7 @@ class SearchBloc{
     eventController.stream.listen((event) {
       if (event is QueryEvent){
         //..
-        filter((event as QueryEvent).query);
+        filter(event.query);
       }
     });
   }
