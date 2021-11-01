@@ -21,6 +21,7 @@ class SearchBloc{
   StreamController<SearchState> stateController = StreamController();
 
 
+
   SearchBloc(){
     eventController.stream.listen((event) {
       if (event is QueryEvent){

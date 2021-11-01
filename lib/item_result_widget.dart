@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_provider/bloc/search_bloc.dart';
 import 'package:provider/provider.dart';
